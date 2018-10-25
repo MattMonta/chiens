@@ -1,0 +1,975 @@
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDogsitters (20181025152431)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "dogsitters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152431_create_dogsitters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152431"]]
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateDogs (20181025152443)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "dogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152443_create_dogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152443"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateStrolls (20181025152453)
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "strolls" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "dog_id" integer, "dogsitter_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dog_id" ON "strolls" ("dog_id")[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dogsitter_id" ON "strolls" ("dogsitter_id")[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152453"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateCities (20181025152501)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "dog_id" integer, "dogsitter_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_cities_on_dog_id" ON "cities" ("dog_id")[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_cities_on_dogsitter_id" ON "cities" ("dogsitter_id")[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152501"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-25 15:30:57.668008"], ["updated_at", "2018-10-25 15:30:57.668008"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCities (20181025152501)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE "cities"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (8.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181025152501"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateStrolls (20181025152453)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE "strolls"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181025152453"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDogs (20181025152443)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "dogs"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181025152443"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDogsitters (20181025152431)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "dogsitters"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181025152431"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateDogsitters (20181025152431)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181025152431_create_dogsitters.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "dogsitters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "citie_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152431_create_dogsitters.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_dogsitters_on_citie_id" ON "dogsitters" ("citie_id")[0m
+  ↳ db/migrate/20181025152431_create_dogsitters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152431"]]
+  ↳ bin/rails:9
+  [1m[35m (95.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateDogs (20181025152443)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "dogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "citie_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152443_create_dogs.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_dogs_on_citie_id" ON "dogs" ("citie_id")[0m
+  ↳ db/migrate/20181025152443_create_dogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152443"]]
+  ↳ bin/rails:9
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateStrolls (20181025152453)
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "strolls" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "dog_id" integer, "dogsitter_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dog_id" ON "strolls" ("dog_id")[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dogsitter_id" ON "strolls" ("dogsitter_id")[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152453"]]
+  ↳ bin/rails:9
+  [1m[35m (16.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateCities (20181025152501)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "dog_id" integer, "dogsitter_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_cities_on_dog_id" ON "cities" ("dog_id")[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_cities_on_dogsitter_id" ON "cities" ("dogsitter_id")[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152501"]]
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mDog Load (2.9ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDogsitter Load (1.0ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStroll Load (0.8ms)[0m  [1m[34mSELECT  "strolls".* FROM "strolls" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCity Load (1.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCities (20181025152501)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (51.4ms)[0m  [1m[35mDROP TABLE "cities"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (4.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181025152501"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateStrolls (20181025152453)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "strolls"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181025152453"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateStrolls (20181025152453)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "strolls" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "dog_id" integer, "dogsitter_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dog_id" ON "strolls" ("dog_id")[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_strolls_on_dogsitter_id" ON "strolls" ("dogsitter_id")[0m
+  ↳ db/migrate/20181025152453_create_strolls.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152453"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateCity (20181025152501)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCity (20181025152501)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181025152501_create_city.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "city" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "dog_id" integer, "dogsitter_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152501_create_city.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_city_on_dog_id" ON "city" ("dog_id")[0m
+  ↳ db/migrate/20181025152501_create_city.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_city_on_dogsitter_id" ON "city" ("dogsitter_id")[0m
+  ↳ db/migrate/20181025152501_create_city.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152501"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCity Load (2.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStroll Load (3.4ms)[0m  [1m[34mSELECT  "strolls".* FROM "strolls" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCity (20181025152501)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE "city"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20181025152501"]]
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCity (20181025152501)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCities (20181025152501)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "dog_id" integer, "dogsitter_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_cities_on_dog_id" ON "cities" ("dog_id")[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_cities_on_dogsitter_id" ON "cities" ("dogsitter_id")[0m
+  ↳ db/migrate/20181025152501_create_cities.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025152501"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (192.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mCity Load (1.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (147.8ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCity Load (2.0ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStroll Load (3.4ms)[0m  [1m[34mSELECT  "strolls".* FROM "strolls" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStroll Load (0.4ms)[0m  [1m[34mSELECT  "strolls".* FROM "strolls" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (2.5ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "mole"], ["created_at", "2018-10-25 16:38:03.300786"], ["updated_at", "2018-10-25 16:38:03.300786"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.7ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "tortoise"], ["created_at", "2018-10-25 16:38:03.310063"], ["updated_at", "2018-10-25 16:38:03.310063"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.6ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "hare"], ["created_at", "2018-10-25 16:38:03.318060"], ["updated_at", "2018-10-25 16:38:03.318060"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.6ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "locust"], ["created_at", "2018-10-25 16:38:03.324664"], ["updated_at", "2018-10-25 16:38:03.324664"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.7ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "mallard"], ["created_at", "2018-10-25 16:38:03.331128"], ["updated_at", "2018-10-25 16:38:03.331128"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (1.7ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Widowmaker"], ["created_at", "2018-10-25 16:38:03.357269"], ["updated_at", "2018-10-25 16:38:03.357269"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (1.3ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Roadhog"], ["created_at", "2018-10-25 16:38:03.515581"], ["updated_at", "2018-10-25 16:38:03.515581"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (1.0ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Mercy"], ["created_at", "2018-10-25 16:38:03.561128"], ["updated_at", "2018-10-25 16:38:03.561128"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (3.9ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Pharah"], ["created_at", "2018-10-25 16:38:03.582499"], ["updated_at", "2018-10-25 16:38:03.582499"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.7ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Orisa"], ["created_at", "2018-10-25 16:38:03.593853"], ["updated_at", "2018-10-25 16:38:03.593853"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (1.6ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-16 00:00:00"], ["dog_id", 3], ["dogsitter_id", 3], ["created_at", "2018-10-25 16:38:03.663031"], ["updated_at", "2018-10-25 16:38:03.663031"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.7ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-09 00:00:00"], ["dog_id", 1], ["dogsitter_id", 4], ["created_at", "2018-10-25 16:38:03.672366"], ["updated_at", "2018-10-25 16:38:03.672366"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.8ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-01 00:00:00"], ["dog_id", 5], ["dogsitter_id", 3], ["created_at", "2018-10-25 16:38:03.680505"], ["updated_at", "2018-10-25 16:38:03.680505"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.8ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-10-29 00:00:00"], ["dog_id", 5], ["dogsitter_id", 2], ["created_at", "2018-10-25 16:38:03.689453"], ["updated_at", "2018-10-25 16:38:03.689453"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (1.0ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-16 00:00:00"], ["dog_id", 4], ["dogsitter_id", 5], ["created_at", "2018-10-25 16:38:03.700663"], ["updated_at", "2018-10-25 16:38:03.700663"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Macejkovicside"], ["dog_id", 2], ["dogsitter_id", 1], ["created_at", "2018-10-25 16:38:03.725156"], ["updated_at", "2018-10-25 16:38:03.725156"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Port Elvisberg"], ["dog_id", 2], ["dogsitter_id", 4], ["created_at", "2018-10-25 16:38:03.735230"], ["updated_at", "2018-10-25 16:38:03.735230"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Waltertown"], ["dog_id", 5], ["dogsitter_id", 3], ["created_at", "2018-10-25 16:38:03.743319"], ["updated_at", "2018-10-25 16:38:03.743319"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "East Hiram"], ["dog_id", 3], ["dogsitter_id", 1], ["created_at", "2018-10-25 16:38:03.751774"], ["updated_at", "2018-10-25 16:38:03.751774"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (2.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "McDermottmouth"], ["dog_id", 1], ["dogsitter_id", 5], ["created_at", "2018-10-25 16:38:03.834090"], ["updated_at", "2018-10-25 16:38:03.834090"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Load (1.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDog Load (0.5ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mStroll Load (0.5ms)[0m  [1m[34mSELECT  "strolls".* FROM "strolls" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDogsitter Load (0.5ms)[0m  [1m[34mSELECT  "dogsitters".* FROM "dogsitters" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (2.6ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "clam"], ["citie_id", 5], ["created_at", "2018-10-25 16:51:22.735870"], ["updated_at", "2018-10-25 16:51:22.735870"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.9ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "monkey"], ["citie_id", 3], ["created_at", "2018-10-25 16:51:22.747456"], ["updated_at", "2018-10-25 16:51:22.747456"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.6ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "panda"], ["citie_id", 2], ["created_at", "2018-10-25 16:51:22.760737"], ["updated_at", "2018-10-25 16:51:22.760737"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.9ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "hare"], ["citie_id", 4], ["created_at", "2018-10-25 16:51:22.768717"], ["updated_at", "2018-10-25 16:51:22.768717"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.6ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "chinchilla"], ["citie_id", 3], ["created_at", "2018-10-25 16:51:22.776626"], ["updated_at", "2018-10-25 16:51:22.776626"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (2.0ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Winston"], ["citie_id", 1], ["created_at", "2018-10-25 16:51:22.817662"], ["updated_at", "2018-10-25 16:51:22.817662"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.7ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Winston"], ["citie_id", 3], ["created_at", "2018-10-25 16:51:22.831201"], ["updated_at", "2018-10-25 16:51:22.831201"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.6ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ana"], ["citie_id", 3], ["created_at", "2018-10-25 16:51:22.837431"], ["updated_at", "2018-10-25 16:51:22.837431"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.6ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Wrecking Ball"], ["citie_id", 5], ["created_at", "2018-10-25 16:51:22.844044"], ["updated_at", "2018-10-25 16:51:22.844044"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.6ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lucio"], ["citie_id", 5], ["created_at", "2018-10-25 16:51:22.850303"], ["updated_at", "2018-10-25 16:51:22.850303"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (17.1ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-03 00:00:00"], ["dog_id", 2], ["dogsitter_id", 3], ["created_at", "2018-10-25 16:51:22.884695"], ["updated_at", "2018-10-25 16:51:22.884695"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.7ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-05 00:00:00"], ["dog_id", 8], ["dogsitter_id", 5], ["created_at", "2018-10-25 16:51:22.909955"], ["updated_at", "2018-10-25 16:51:22.909955"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.7ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-16 00:00:00"], ["dog_id", 6], ["dogsitter_id", 7], ["created_at", "2018-10-25 16:51:22.926882"], ["updated_at", "2018-10-25 16:51:22.926882"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (1.7ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-10 00:00:00"], ["dog_id", 9], ["dogsitter_id", 8], ["created_at", "2018-10-25 16:51:22.935577"], ["updated_at", "2018-10-25 16:51:22.935577"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (1.0ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-10-27 00:00:00"], ["dog_id", 7], ["dogsitter_id", 3], ["created_at", "2018-10-25 16:51:22.948010"], ["updated_at", "2018-10-25 16:51:22.948010"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (9.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (7.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Schultzport"], ["dog_id", 8], ["dogsitter_id", 6], ["created_at", "2018-10-25 16:51:23.007595"], ["updated_at", "2018-10-25 16:51:23.007595"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bartonview"], ["dog_id", 2], ["dogsitter_id", 4], ["created_at", "2018-10-25 16:51:23.113813"], ["updated_at", "2018-10-25 16:51:23.113813"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bechtelarburgh"], ["dog_id", 2], ["dogsitter_id", 9], ["created_at", "2018-10-25 16:51:23.127043"], ["updated_at", "2018-10-25 16:51:23.127043"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "West Sydney"], ["dog_id", 9], ["dogsitter_id", 8], ["created_at", "2018-10-25 16:51:23.136630"], ["updated_at", "2018-10-25 16:51:23.136630"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Brunofurt"], ["dog_id", 3], ["dogsitter_id", 5], ["created_at", "2018-10-25 16:51:23.151249"], ["updated_at", "2018-10-25 16:51:23.151249"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mStroll Load (1.7ms)[0m  [1m[34mSELECT  "strolls".* FROM "strolls" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDog Load (0.6ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (1.0ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "sardine"], ["citie_id", 8], ["created_at", "2018-10-25 16:52:16.036115"], ["updated_at", "2018-10-25 16:52:16.036115"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.6ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "raccoon"], ["citie_id", 2], ["created_at", "2018-10-25 16:52:16.043608"], ["updated_at", "2018-10-25 16:52:16.043608"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (1.0ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "mule"], ["citie_id", 8], ["created_at", "2018-10-25 16:52:16.171796"], ["updated_at", "2018-10-25 16:52:16.171796"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (1.1ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "cod"], ["citie_id", 9], ["created_at", "2018-10-25 16:52:16.219854"], ["updated_at", "2018-10-25 16:52:16.219854"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[36mDog Create (0.8ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ant"], ["citie_id", 8], ["created_at", "2018-10-25 16:52:16.227787"], ["updated_at", "2018-10-25 16:52:16.227787"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.8ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ana"], ["citie_id", 4], ["created_at", "2018-10-25 16:52:16.272503"], ["updated_at", "2018-10-25 16:52:16.272503"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.8ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Torbjorn"], ["citie_id", 1], ["created_at", "2018-10-25 16:52:16.291059"], ["updated_at", "2018-10-25 16:52:16.291059"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.7ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Widowmaker"], ["citie_id", 1], ["created_at", "2018-10-25 16:52:16.299584"], ["updated_at", "2018-10-25 16:52:16.299584"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.6ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Genji"], ["citie_id", 5], ["created_at", "2018-10-25 16:52:16.305825"], ["updated_at", "2018-10-25 16:52:16.305825"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "cities"."id" FROM "cities"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[36mDogsitter Create (0.8ms)[0m  [1m[32mINSERT INTO "dogsitters" ("name", "citie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Zarya"], ["citie_id", 4], ["created_at", "2018-10-25 16:52:16.312500"], ["updated_at", "2018-10-25 16:52:16.312500"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (6.2ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-17 00:00:00"], ["dog_id", 7], ["dogsitter_id", 3], ["created_at", "2018-10-25 16:52:16.354326"], ["updated_at", "2018-10-25 16:52:16.354326"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.7ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-15 00:00:00"], ["dog_id", 4], ["dogsitter_id", 10], ["created_at", "2018-10-25 16:52:16.370217"], ["updated_at", "2018-10-25 16:52:16.370217"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.7ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-10-26 00:00:00"], ["dog_id", 9], ["dogsitter_id", 14], ["created_at", "2018-10-25 16:52:16.377655"], ["updated_at", "2018-10-25 16:52:16.377655"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.7ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-14 00:00:00"], ["dog_id", 8], ["dogsitter_id", 8], ["created_at", "2018-10-25 16:52:16.385748"], ["updated_at", "2018-10-25 16:52:16.385748"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mStroll Create (0.7ms)[0m  [1m[32mINSERT INTO "strolls" ("date", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date", "2018-11-03 00:00:00"], ["dog_id", 13], ["dogsitter_id", 9], ["created_at", "2018-10-25 16:52:16.393463"], ["updated_at", "2018-10-25 16:52:16.393463"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "South Bradymouth"], ["dog_id", 13], ["dogsitter_id", 11], ["created_at", "2018-10-25 16:52:16.415982"], ["updated_at", "2018-10-25 16:52:16.415982"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (1.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Howeside"], ["dog_id", 2], ["dogsitter_id", 3], ["created_at", "2018-10-25 16:52:16.424128"], ["updated_at", "2018-10-25 16:52:16.424128"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Spencermouth"], ["dog_id", 8], ["dogsitter_id", 9], ["created_at", "2018-10-25 16:52:16.434175"], ["updated_at", "2018-10-25 16:52:16.434175"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mathewburgh"], ["dog_id", 4], ["dogsitter_id", 12], ["created_at", "2018-10-25 16:52:16.485715"], ["updated_at", "2018-10-25 16:52:16.485715"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogs"."id" FROM "dogs"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "dogsitters"."id" FROM "dogsitters"[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Create (0.6ms)[0m  [1m[32mINSERT INTO "cities" ("name", "dog_id", "dogsitter_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Karlynport"], ["dog_id", 6], ["dogsitter_id", 13], ["created_at", "2018-10-25 16:52:16.494198"], ["updated_at", "2018-10-25 16:52:16.494198"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mStroll Load (8.0ms)[0m  [1m[34mSELECT  "strolls".* FROM "strolls" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDog Load (0.5ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" LIMIT ?[0m  [["LIMIT", 11]]
